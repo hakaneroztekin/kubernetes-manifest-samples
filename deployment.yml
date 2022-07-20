@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: basic-spring-app-deployment
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      env: development
+  minReadySeconds: 15
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      name: basic-spring-app
+      labels:
+        env: development
+    spec:
+      containers:
+        - name: basic-spring-app
+          image: hakaneroztekin/basic-spring-app
+          ports:
+            - containerPort: 8080
