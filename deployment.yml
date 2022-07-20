@@ -3,16 +3,15 @@ kind: Deployment
 metadata:
   name: basic-spring-app-deployment
 spec:
-  replicas: 5
-  selector:
-    matchLabels:
-      env: development
-  minReadySeconds: 15
   strategy:
     type: RollingUpdate
     rollingUpdate:
       maxUnavailable: 1
       maxSurge: 1
+  replicas: 5
+  selector:
+    matchLabels:
+      env: development
   template:
     metadata:
       name: basic-spring-app
