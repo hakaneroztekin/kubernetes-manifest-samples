@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: basic-spring-service
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      nodePort: 30050
+  selector:
+    env: development
