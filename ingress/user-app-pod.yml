@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: user-app-pod
+  labels:
+    app-name: user-app
+spec:
+  containers:
+    - name: user-app
+      image: hakaneroztekin/basic-user-app
+      ports:
+        - containerPort: 8080
