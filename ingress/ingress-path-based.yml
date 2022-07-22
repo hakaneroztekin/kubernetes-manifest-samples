@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-path-based
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+   - host: localhost
+     http:
+       paths:
+         - path: /order
+           pathType: Prefix
+           backend:
+             service:
+               name: order-service
+               port:
+                 number: 8080
+         - path: /user
+           pathType: Prefix
+           backend:
+             service:
+               name: user-service
+               port:
+                 number: 8080
