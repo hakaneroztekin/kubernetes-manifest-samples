@@ -20,6 +20,6 @@ spec:
     spec:
       containers:
         - name: basic-spring-app
-          image: hakaneroztekin/basic-spring-app:2.0
+          image: hakaneroztekin/basic-spring-app
           ports:
             - containerPort: 8080
